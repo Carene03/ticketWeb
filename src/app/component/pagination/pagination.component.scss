@@ -1,0 +1,13 @@
+.page-link{
+    border: none;
+    color:black;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.active,.page-link:hover{
+    background-color:#f1d5d0;
+}
+.page-item{
+    background-color: white;
+}

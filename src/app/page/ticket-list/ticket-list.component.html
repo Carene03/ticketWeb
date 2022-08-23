@@ -1,0 +1,60 @@
+<!-- <div class="col-md-12 head pb-2" > -->
+    <div class="row head pb-2">
+        <div class="col-md-6 left">
+            <div class="row">
+                <b class="col">Tickets</b>
+            </div>
+            <div class="row">
+                <div class="col" style="font-size: 14px;">
+                    Total : <b>7</b>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 stat" style="border-inline: 1px solid #dee2e6;" (click)="open=true">
+            <div class="row">
+                <div class="col ">
+                    <b class="align-middle">Opened</b>
+                    <mat-icon class="align-middle me-4 ms-2">hourglass_empty</mat-icon>
+                    <span class="align-middle">:</span>
+                    <b class="mx-3 align-middle">6</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" style="font-size: 14px;">
+                    <span class="align-middle">View all</span>
+                    <mat-icon class="align-middle me-4 ms-2">visibility_outlined</mat-icon>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 stat" (click)="open=false">
+            <div class="row">
+                <div class="col ">
+                    <b class="align-middle">Closed</b>
+                    <mat-icon class="align-middle me-4 ms-2">done_all</mat-icon>
+                    <span class="align-middle">:</span>
+                    <b class="mx-3 align-middle">1</b>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col" style="font-size: 14px;">
+                    <span class="align-middle">View all</span>
+                    <mat-icon class="align-middle me-4 ms-2">visibility_outlined</mat-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="row">
+    <div class="col-md-6 my-2">
+        <b>{{open?'Opened':'Closed'}}</b>
+    </div>
+    <div class="col-md-6 my-2 text-end pe-0">
+        <mat-icon>toc</mat-icon>
+    </div>
+    
+</div>
+
+<div class="row ">
+    <app-ticket *ngFor="let ticket of tickets" class="col-md-3 px-2 mb-2"></app-ticket>
+</div>
+
+<app-pagination class="row" size="5" active="2"></app-pagination>

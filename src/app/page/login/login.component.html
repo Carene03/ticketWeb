@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row ">
+        <div class="col-md-2 bdr left ">
+        </div>
+        <div class="col-md-8">
+            <div class="row  py-2 px-5">
+                <label for="exampleFormControlInput1"  class="form-label">Email address</label>
+                <input type="email" class="form-control" [(ngModel)]="emailOrUserName" id="exampleFormControlInput1" placeholder="email or userName">
+            </div>
+            <div class="row  py-2 px-5">
+                <label for="exampleFormControlInput1" class="form-label">password</label>
+                <input type="password" class="form-control" [(ngModel)]="password" id="exampleFormControlInput1" placeholder="password">
+            </div>
+            <div class="row">
+                <button type="button" (click)="login()" class="btn btn-outline-primary">login</button>
+            </div>
+        </div>
+        <div class="col-md-2 bdr left ">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+.photo{
+    width:100px;
+    height:100px;
+    background: #f1d5d0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 100%;
+    margin: 0 auto;
+
+}
+
+.detail{
+    line-height: 14px;
+    font-size: 13px;
+    .grey{
+        color: grey;
+        font-weight: bolder;
+    }
+}
+#status{
+    width: 8px;
+    height:8px;
+    font-size: 8px;
+    color:#4dd36a
+}
+mat-icon{
+    font-size: 18px;
+    width:18px;
+    height:18px;
+}

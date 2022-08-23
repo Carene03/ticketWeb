@@ -1,0 +1,11 @@
+<input #fileInput type="file" (change)="huhu($event)" class="position-absolute"  />
+
+<textarea class="col-md-9" [(ngModel)]="text"></textarea>
+<div class="col-md-2 p-0"> 
+    <div class="position-relative cnt"  (click)="fileInput.click()">
+        <mat-icon  class="" >
+            file_upload
+        </mat-icon>
+    </div>
+</div>
+<app-file-list class="col-md-11 p-0" [file]="file"></app-file-list>

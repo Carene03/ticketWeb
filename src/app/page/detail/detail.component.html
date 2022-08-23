@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-md-8 bdr">
+        <app-reply [ticket]="ticket" class="row"></app-reply>
+        <app-add class="row" [text]="'somethingha'"> </app-add>
+        <div class="row my-3">
+            <div class="col-md-11 p-0  text-end">
+                <button (click)="test()">Submit</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <app-info [ticket]="ticket" class="row bdb py-3"></app-info>
+        <app-file-list class="row" [file]="attachedFile"></app-file-list>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+input{
+    height:0px;
+    width:0px;
+}
+mat-icon{
+    width:26px;
+    height:26px;
+    font-size: 26px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+.cnt{
+    border:1px solid grey;
+    height:60px;
+    border-left: none;
+}
+textarea{
+    height:60px;
+    max-height:60px;
+    outline: none;
+    background-color: #f5f5f5;
+}

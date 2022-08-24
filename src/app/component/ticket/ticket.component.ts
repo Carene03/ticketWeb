@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { SupportTicket } from 'src/app/shared/sdk';
 
 @Component({
   selector: 'app-ticket',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TicketComponent implements OnInit {
 
+  @Input() ticket:any|SupportTicket;
   constructor() { }
 
   ngOnInit(): void {

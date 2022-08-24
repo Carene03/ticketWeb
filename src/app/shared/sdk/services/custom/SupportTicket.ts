@@ -308,7 +308,11 @@ export class SupportTicketApi extends BaseLoopBackApi {
    *   populated with the actual data once the response is returned
    *   from the server.
    *
-   * This method returns no data.
+   * Data properties:
+   *
+   *  - `data` – `{any}` - 
+   *
+   *  - `Content-Type` – `{string}` - 
    */
   public getTicket(customHeaders?: Function): Observable<any> {
     let _method: string = "GET";
@@ -316,6 +320,32 @@ export class SupportTicketApi extends BaseLoopBackApi {
     "/SupportTickets/getTicket";
     let _routeParams: any = {};
     let _postBody: any = {};
+    let _urlParams: any = {};
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
+    return result;
+  }
+
+  /**
+   * role user change with success
+   *
+   * @param {object} data Request data.
+   *
+   * This method expects a subset of model properties as request parameters.
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * This method returns no data.
+   */
+  public closeTicket(data: any, customHeaders?: Function): Observable<any> {
+    let _method: string = "PUT";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/SupportTickets/closeTicket";
+    let _routeParams: any = {};
+    let _postBody: any = {
+      data: data
+    };
     let _urlParams: any = {};
     let result = this.request(_method, _url, _routeParams, _urlParams, _postBody, null, customHeaders);
     return result;

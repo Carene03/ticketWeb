@@ -1,4 +1,7 @@
 /* tslint:disable */
+import {
+  AppUser
+} from '../index';
 
 declare var Object: any;
 export interface AccountInterface {
@@ -10,6 +13,8 @@ export interface AccountInterface {
   "password"?: string;
   accessTokens?: any[];
   role?: any[];
+  accessToken?: any;
+  appUser?: AppUser;
 }
 
 export class Account implements AccountInterface {
@@ -21,6 +26,8 @@ export class Account implements AccountInterface {
   "password": string;
   accessTokens: any[];
   role: any[];
+  accessToken: any;
+  appUser: AppUser;
   constructor(data?: AccountInterface) {
     Object.assign(this, data);
   }
@@ -97,6 +104,22 @@ export class Account implements AccountInterface {
           keyThrough: 'roleId',
           keyFrom: 'id',
           keyTo: 'principalId'
+        },
+        accessToken: {
+          name: 'accessToken',
+          type: 'any',
+          model: '',
+          relationType: 'hasOne',
+                  keyFrom: 'id',
+          keyTo: 'accountId'
+        },
+        appUser: {
+          name: 'appUser',
+          type: 'AppUser',
+          model: 'AppUser',
+          relationType: 'hasOne',
+                  keyFrom: 'id',
+          keyTo: 'accountId'
         },
       }
     }

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Ticket } from 'src/app/class/reply';
+import { ReplyApi, SupportTicket } from 'src/app/shared/sdk';
 
 @Component({
   selector: 'app-reply',
@@ -7,8 +7,8 @@ import { Ticket } from 'src/app/class/reply';
   styleUrls: ['./reply.component.scss']
 })
 export class ReplyComponent implements OnInit {
-  @Input() ticket:any|Ticket;
-  constructor() { }
+  @Input() ticket:any|SupportTicket;
+  constructor(private preplyModel : ReplyApi) { }
 
   ngOnInit(): void {
   }

@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Filef } from 'src/app/shared/sdk';
 
 @Component({
   selector: 'app-add',
@@ -6,15 +7,20 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./add.component.scss']
 })
 export class AddComponent implements OnInit {
-  @Input() file:Array<File>=[]
+  @Input() file:Array<Filef>=[]
   @Input() text:String;
+  @Output() files:EventEmitter<Array<Filef>>= new EventEmitter();  
   constructor() { }
 
   ngOnInit(): void {
   }
-  huhu(event:any){
+
+  pushFile(event:any){
     for(let e of event?.target?.files||[]){
-      this.file.push(e)
+      var temp = new Filef();
+      temp.file = e.webkitRelativePath+e.name
+      this.file.push(temp);
     }
+    this.files.emit(this.file);
   }
 }

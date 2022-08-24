@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Filef } from 'src/app/shared/sdk';
 
 @Component({
   selector: 'app-file-list',
@@ -6,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./file-list.component.scss']
 })
 export class FileListComponent implements OnInit {
-  @Input() file:Array<File>=[]
+  @Input() file:Array<Filef>=[]
   constructor() { }
 
   ngOnInit(): void {

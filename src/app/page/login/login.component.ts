@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
   login(){
     let data = {
       "username":this.emailOrUserName,
-      "email":this.emailOrUserName,
       "password":this.password
     }
     this.accountApi.login(data).subscribe((val)=>{
@@ -34,8 +33,6 @@ export class LoginComponent implements OnInit {
           this.auth.setUser(val);
           this.auth.setToken(val);
         }
-      }else{
-        
       }
     });
   }

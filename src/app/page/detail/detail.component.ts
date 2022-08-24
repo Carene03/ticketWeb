@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Reply, Role, Ticket, User } from 'src/app/class/reply';
 import { AddComponent } from 'src/app/component/add/add.component';
+import { Filef, FilefApi, LoopBackAuth, SupportTicket, SupportTicketApi } from 'src/app/shared/sdk';
 
 @Component({
   selector: 'app-detail',
@@ -9,27 +10,18 @@ import { AddComponent } from 'src/app/component/add/add.component';
   styleUrls: ['./detail.component.scss']
 })
 export class DetailComponent implements OnInit {
-  ticket:any|Ticket=new Ticket();
-  attachedFile:Array<File>=[];
+  ticket:any|SupportTicket = new SupportTicket();
+  attachedFile:Array<Filef>=[];
+  datas:Array<Filef>;
   @ViewChild(AddComponent) add:AddComponent;
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private fileApi : FilefApi, private auth : LoopBackAuth, private ticctetApi : SupportTicketApi) { }
 
   ngOnInit(): void {
-    this.ticket.id=this.route.snapshot.paramMap.get('id');
+    if(this.route.snapshot.paramMap.get('id')) {
+      this.getTicketById(this.route.snapshot.paramMap.get('id'));
+    } else {
 
-    // call ws to init ticket detail
-    this.ticket.title="Ticket 1 something"
-    this.ticket.createdAt=new Date();
-    this.ticket.owner=new User();
-
-    this.ticket.owner.id=1;
-    this.ticket.owner.userName="Mirana Carène";
-    this.ticket.owner.role=new Role();
-
-
-    this.ticket.owner.role.id=1;
-    this.ticket.owner.roleName="user";
-
+    }
     this.ticket.reply=new Array<Reply>();
     let r:any=new Reply();
     r.text="something";
@@ -42,13 +34,39 @@ export class DetailComponent implements OnInit {
     r.file.push(new File(new Array<BlobPart>,"aaaa",{}));
     r.file.push(new File(new Array<BlobPart>,"aaaa",{}));
   }
-  get file():Array<File>{
-    return this.add.file;
+
+  getTicketById(id){
+    this.ticctetApi.findById(this.ticket.id).subscribe((value) => {
+      if (value) this.ticket = value;
+    });
   }
-  get text():string{
-    return this.add.text as string;
+
+  getAttachedFiles(){
+    const condition = {
+      resource: SupportTicket.getModelName(),
+      recourceId: this.ticket.id
+    }
+    this.fileApi.getFile(condition).subscribe((val)=>{});
   }
-  test(){
-    alert(this.text +"----->"+this.file.length)
+
+  save(){
+    let data = {
+      "file": this.datas,
+      "recource": SupportTicket.getModelName(),
+      "recourceId": this.ticket.id
+    }
+
+    for( let f of this.datas){
+      f.recource = SupportTicket.getModelName();
+      f.recourceId = this.ticket.id;
+      this.fileApi.create(f);
+    }
+
+    console.log(data);
+    
+  }
+  getDatas(donne:Array<Filef>){
+    this.datas = donne
+    console.log(this.datas);
   }
 }

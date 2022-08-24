@@ -9,6 +9,7 @@ declare var Object: any;
 export interface AppUserInterface {
   "firstName": string;
   "lastName": string;
+  "locked": boolean;
   "id"?: number;
   "accountId"?: number;
   "createdAt"?: Date;
@@ -20,6 +21,7 @@ export interface AppUserInterface {
 export class AppUser implements AppUserInterface {
   "firstName": string;
   "lastName": string;
+  "locked": boolean;
   "id": number;
   "accountId": number;
   "createdAt": Date;
@@ -66,6 +68,11 @@ export class AppUser implements AppUserInterface {
         "lastName": {
           name: 'lastName',
           type: 'string'
+        },
+        "locked": {
+          name: 'locked',
+          type: 'boolean',
+          default: false
         },
         "id": {
           name: 'id',

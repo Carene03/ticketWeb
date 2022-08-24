@@ -1,10 +1,10 @@
 <div class="row">
     <div class="col-md-8 bdr">
         <app-reply [ticket]="ticket" class="row"></app-reply>
-        <app-add class="row" [text]="'somethingha'"> </app-add>
+        <app-add class="row" [text]="'something'" (files)="getDatas($event)"> </app-add>
         <div class="row my-3">
             <div class="col-md-11 p-0  text-end">
-                <button (click)="test()">Submit</button>
+                <button (click)="save()">test</button>
             </div>
         </div>
     </div>

@@ -1,7 +1,6 @@
 import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/service/user.service';
-import { AccountApi, AppUser, LoopBackAuth } from 'src/app/shared/sdk';
 
 @Component({
   selector: 'app-profil',

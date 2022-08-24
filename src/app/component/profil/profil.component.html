@@ -17,10 +17,10 @@
         </div>
     </div>
     <div class="row ps-3">
-        <div class="col-md-12" style="font-size:15px" [routerLink]="'/ticket/'+user?.id">
+        <!-- <div class="col-md-12" style="font-size:15px" [routerLink]="'/ticket/'+user?.id">
             <mat-icon  class="me-2 align-middle">visibility</mat-icon>
             <span class="me-2 align-middle" >{{currentUser?.id==user?.id?"my":"all"}} tickets</span>
-        </div>
+        </div> -->
         <div class="col-md-12" (click) ="logout()" *ngIf="currentUser?.id==user?.id">
             <mat-icon  class="me-2 align-middle">lock</mat-icon>
             <span type="button"  class="align-middle">logout</span>

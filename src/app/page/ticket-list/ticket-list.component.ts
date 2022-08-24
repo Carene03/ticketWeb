@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoopBackAuth, SupportTicketApi } from 'src/app/shared/sdk';
+import { AccountApi, LoopBackAuth, SupportTicketApi } from 'src/app/shared/sdk';
 
 @Component({
   selector: 'app-ticket-list',
@@ -18,9 +18,12 @@ export class TicketListComponent implements OnInit {
   get open(){
     return this.#open;
   }
-  constructor(private router : Router, private auth : LoopBackAuth ,private supportTicketApi : SupportTicketApi) { }
+  constructor(private accountApi: AccountApi, private router : Router, private auth : LoopBackAuth ,private supportTicketApi : SupportTicketApi) { }
 
   ngOnInit(): void {
+    console.log(this.auth.getToken().id);
+    
+    // this.accountApi.logout();
     if(this.auth.getToken().id==null){
       this.router.navigate(['login']);
     } else {

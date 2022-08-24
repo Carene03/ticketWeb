@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Reply, Role, Ticket, User } from 'src/app/class/reply';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AddComponent } from 'src/app/component/add/add.component';
-import { Filef, FilefApi, LoopBackAuth, SupportTicket, SupportTicketApi } from 'src/app/shared/sdk';
+import { SupportTicket, Filef, FilefApi, LoopBackAuth, SupportTicketApi, Reply } from 'src/app/shared/sdk';
 
 @Component({
   selector: 'app-detail',
@@ -14,10 +13,15 @@ export class DetailComponent implements OnInit {
   attachedFile:Array<Filef>=[];
   datas:Array<Filef>;
   @ViewChild(AddComponent) add:AddComponent;
-  constructor(private route: ActivatedRoute, private fileApi : FilefApi, private auth : LoopBackAuth, private ticctetApi : SupportTicketApi) { }
+  constructor(private router : Router, private route: ActivatedRoute, private fileApi : FilefApi, private auth : LoopBackAuth, private ticketApi : SupportTicketApi) { }
 
   ngOnInit(): void {
+    
+    if(!this.auth.getToken().id){
+      this.router.navigate(['login']);
+    }
     if(this.route.snapshot.paramMap.get('id')) {
+
       this.getTicketById(this.route.snapshot.paramMap.get('id'));
     } else {
 
@@ -36,7 +40,7 @@ export class DetailComponent implements OnInit {
   }
 
   getTicketById(id){
-    this.ticctetApi.findById(this.ticket.id).subscribe((value) => {
+    this.ticketApi.findById(id).subscribe((value) => {
       if (value) this.ticket = value;
     });
   }
@@ -59,10 +63,13 @@ export class DetailComponent implements OnInit {
     for( let f of this.datas){
       f.recource = SupportTicket.getModelName();
       f.recourceId = this.ticket.id;
-      this.fileApi.create(f);
+      this.fileApi.create(f).subscribe((val) => {
+        console.log(val);
+        
+      });
     }
 
-    console.log(data);
+    // console.log(data);
     
   }
   getDatas(donne:Array<Filef>){

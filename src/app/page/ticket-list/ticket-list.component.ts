@@ -21,16 +21,18 @@ export class TicketListComponent implements OnInit {
   constructor(private router : Router, private auth : LoopBackAuth ,private supportTicketApi : SupportTicketApi) { }
 
   ngOnInit(): void {
-    // if(!this.auth.getToken().id){
-    //   this.router.navigate(['login']);
-    // } else {
-    //   this.findTicket();
-    // }
+    if(this.auth.getToken().id==null){
+      this.router.navigate(['login']);
+    } else {
+      this.findTicket();
+    }
   }
 
   findTicket(){
     this.supportTicketApi.getTicket().subscribe((value) => {
-      if (value) this.tickets = value;
+      if (value) this.tickets = value.data;
+      // console.log(value.data);
+      
     });
   }
 

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Reply } from 'src/app/class/reply';
+import { Reply } from 'src/app/shared/sdk';
 
 @Component({
   selector: 'app-text',

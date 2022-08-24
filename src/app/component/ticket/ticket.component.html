@@ -1,50 +1,15 @@
-<!-- <div class="row content px-2" >
+<div class="row content px-2" >
     <div class="col-md-12  h">
         <div class="row pt-3 pb-2">
             <h5 class="col-md-10">{{ ticket.title }}</h5>
-            <div class="col-md-2">
-                <mat-icon [routerLink]="'detail/{{ ticket.id }}'" class="align-middle">{{ ticket.status }}</mat-icon>
+            <div class="col-md-2" (click)="detail()">
+                <mat-icon class="align-middle">info</mat-icon>
             </div>
         </div>
         <div class="row" >
             <b class="col-md-12">Description :</b>
             <i class="col-md-12 description">
                 {{ ticket.text }}
-            </i>
-        </div> -->
-        <!-- <div class="row my-3">
-            <div class="col">
-                <mat-icon class="align-middle me-1 p-0">attach_file</mat-icon>
-                <b class="align-middle me-1">4</b>
-                <span class="align-middle"> attached file</span>
-            </div>
-        </div> -->
-        <!-- <div class="row pb-3 mt-3">
-            <div class="col-md-6">
-                <div class="profil me-2"></div>
-                <b style="font-size: 12px;">Author : {{ ticket.appUserId }}</b>
-            </div>
-            <div class="col-md-6 date ps-0 text-end" >
-                <mat-icon class="align-middle me-2">query_builder</mat-icon>
-                <b class="align-middle">{{ ticket.createdAt }}</b>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-
-<div class="row content px-2" >
-    <div class="col-md-12  h">
-        <div class="row pt-3 pb-2">
-            <h5 class="col-md-10"> ticket.title</h5>
-            <div class="col-md-2">
-                <mat-icon [routerLink]="'detail/1'" class="align-middle">ticket.status</mat-icon>
-            </div>
-        </div>
-        <div class="row" >
-            <b class="col-md-12">Description :</b>
-            <i class="col-md-12 description">
-                ticket.text
             </i>
         </div>
         <!-- <div class="row my-3">
@@ -57,11 +22,11 @@
         <div class="row pb-3 mt-3">
             <div class="col-md-6">
                 <div class="profil me-2"></div>
-                <b style="font-size: 12px;">Author :ticket.appUserId </b>
+                <b style="font-size: 12px;">Author : {{ ticket.appUserId }}</b>
             </div>
             <div class="col-md-6 date ps-0 text-end" >
                 <mat-icon class="align-middle me-2">query_builder</mat-icon>
-                <b class="align-middle">ticket.createdAt </b>
+                <b class="align-middle">{{ ticket.createdAt }}</b>
             </div>
         </div>
     </div>

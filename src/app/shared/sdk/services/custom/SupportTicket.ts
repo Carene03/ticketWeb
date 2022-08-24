@@ -300,7 +300,9 @@ export class SupportTicketApi extends BaseLoopBackApi {
   }
 
   /**
-   * role user change with success
+   * <em>
+         * (The remote method definition does not provide any description.)
+         * </em>
    *
    * @param {object} options 
    *
@@ -311,8 +313,6 @@ export class SupportTicketApi extends BaseLoopBackApi {
    * Data properties:
    *
    *  - `data` – `{any}` - 
-   *
-   *  - `Content-Type` – `{string}` - 
    */
   public getTicket(customHeaders?: Function): Observable<any> {
     let _method: string = "GET";

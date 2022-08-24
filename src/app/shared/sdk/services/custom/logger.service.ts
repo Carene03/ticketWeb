@@ -48,7 +48,7 @@ export class LoggerService {
 
   profileEnd() {
     if (LoopBackConfig.debuggable())
-    console.profileEnd();
+    console.log();
   }
 
   time(arg: string) {

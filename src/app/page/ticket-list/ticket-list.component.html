@@ -6,7 +6,7 @@
             </div>
             <div class="row">
                 <div class="col" style="font-size: 14px;">
-                    Total : <b>7</b>
+                    Total : <b>{{ tickets.length }}</b>
                 </div>
             </div>
         </div>
@@ -20,14 +20,14 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col" style="font-size: 14px;">
+                <!-- <div class="col" style="font-size: 14px;">
                     <span class="align-middle">View all</span>
                     <mat-icon class="align-middle me-4 ms-2">visibility_outlined</mat-icon>
-                </div>
+                </div> -->
             </div>
         </div>
         <div class="col-md-3 stat" (click)="open=false">
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col ">
                     <b class="align-middle">Closed</b>
                     <mat-icon class="align-middle me-4 ms-2">done_all</mat-icon>
@@ -40,7 +40,7 @@
                     <span class="align-middle">View all</span>
                     <mat-icon class="align-middle me-4 ms-2">visibility_outlined</mat-icon>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 <div class="row">
@@ -54,8 +54,8 @@
 </div>
 
 <div class="row ">
-    <!-- <app-ticket *ngFor="let ticket of tickets" class="col-md-3 px-2 mb-2"></app-ticket> -->
-    <app-ticket *ngFor="let ticket of [1,2,3,4,5,6]" class="col-md-3 px-2 mb-2"></app-ticket>
+    <app-ticket *ngFor="let t of tickets" [ticket]="t" class="col-md-3 px-2 mb-2"></app-ticket>
+    <!-- <app-ticket *ngFor="let ticket of [1,2,3,4,5,6]" class="col-md-3 px-2 mb-2"></app-ticket> -->
 </div>
 
 <app-pagination class="row" size="5" active="2"></app-pagination>

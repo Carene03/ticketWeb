@@ -14,9 +14,14 @@ export class LoginComponent implements OnInit {
   constructor(private accountApi : AccountApi, private router : Router, private auth : LoopBackAuth) { }
 
   ngOnInit(): void {
-    if(this.auth.getToken().id){
+    if(this.auth.getToken().id!=null){
       this.router.navigate(['']);
     }
+    // if(!this.auth.getToken().id){
+    //   this.router.navigate(['login']);
+    // }else{
+    //   this.router.navigate(['']);
+    // }
   }
 
   login(){

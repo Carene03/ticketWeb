@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import {  Router } from '@angular/router';
 import { SupportTicket } from 'src/app/shared/sdk';
 
 @Component({
@@ -9,9 +10,14 @@ import { SupportTicket } from 'src/app/shared/sdk';
 export class TicketComponent implements OnInit {
 
   @Input() ticket:any|SupportTicket;
-  constructor() { }
+
+  constructor(private router : Router) { }
 
   ngOnInit(): void {
+  }
+
+  detail(){
+    this.router.navigate(['/detail/'+this.ticket.id]);
   }
 
 }

@@ -1,0 +1,15 @@
+<div [ngClass]="' row d-flex justify-content-'+ (self ?'end':'start')" >
+
+    <div [ngClass]="'col-md-9 content pt-2 px-4 '+(self?'self':'')">
+        <div class="row ">
+            <div class="col"><b>{{self?"vous":reply?.user?.userName}}</b></div>
+        </div>
+        <div class="row  py-2">
+            <div class="col"><i>{{reply?.text}}</i></div>
+        </div>
+        <div class="row bdt py-2" *ngIf="reply.file?.length>0">
+            <app-file-list [file]="reply.file"></app-file-list>
+        </div>
+    </div>
+
+</div>

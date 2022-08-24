@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AccountApi } from 'src/app/shared/sdk';
+import { UserService } from 'src/app/service/user.service';
+import { AccountApi, AppUser, LoopBackAuth } from 'src/app/shared/sdk';
 
 @Component({
   selector: 'app-profil',
@@ -8,15 +9,30 @@ import { AccountApi } from 'src/app/shared/sdk';
   styleUrls: ['./profil.component.scss']
 })
 export class ProfilComponent implements OnInit {
-
-  constructor(private accountApi : AccountApi, private router : Router) { }
-
-  ngOnInit(): void {
+  @Input() user;
+  currentUser;
+  isAdmin;
+  constructor(
+    private us:UserService,
+    private router : Router,
+  ) { 
+    // this.us.currentUser.subscribe((user)=>this.currentUser=user)
   }
-
-  logout(){
-    this.accountApi.logout().subscribe((val)=>{
-      this.router.navigate(['login']);
+  
+  @Input() self:boolean=false;
+  ngOnInit(): void {
+    this.us.currentUser.subscribe(data=>this.currentUser=data);
+    if(this.user)
+    this.us.isAdmin(this.user).subscribe(data=>{
+      this.isAdmin=data;
     });
+    
+  }
+  ngAfterViewChecked(){
+    
+
+  }
+  logout(){
+    this.us.logout()
   }
 }

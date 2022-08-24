@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AccountApi } from 'src/app/shared/sdk';
+import { UserService } from 'src/app/service/user.service';
+import { AppUser } from 'src/app/shared/sdk';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +9,13 @@ import { AccountApi } from 'src/app/shared/sdk';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private accountApi : AccountApi) { }
-
+  constructor(private us:UserService) { }
+  isAdmin=false;
+  currentUser:AppUser;
   ngOnInit(): void {
-    // this.accountApi.logout();
+    this.us.currentUser.subscribe(data=>this.currentUser=data);
+    this.us.currentIsAdmin.subscribe(data=>this.isAdmin=data);
+    
   }
 
 }

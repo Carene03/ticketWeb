@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {  Router } from '@angular/router';
-import { Filef, SupportTicket, SupportTicketApi, FilefApi, AppUser } from 'src/app/shared/sdk';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from 'src/app/service/user.service';
+import { AccountApi, AppUserApi, LoopBackAuth, SupportTicketApi } from 'src/app/shared/sdk';
 
 @Component({
   selector: 'app-ticket',

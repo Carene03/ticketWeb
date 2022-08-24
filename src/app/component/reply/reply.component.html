@@ -1,5 +1,11 @@
 <div class="col-md-11 my-2">
     <div class="row">
-        <app-text *ngFor="let r of ticket?.reply" class="col-md-12 my-2" [reply]="r" [self]="false"></app-text>
+        <app-text *ngFor="let r of reply" class="col-md-12 my-2" [reply]="r" [self]="r.appUserId==userId"></app-text>
+    </div>
+    <app-add class="row" [text]="text" (files)="getDatas($event)"> </app-add>
+        <div class="row my-3">
+            <div class="col-md-11 p-0  text-end">
+                <button (click)="save()">save</button>
+            </div>
     </div>
 </div>

@@ -33,3 +33,13 @@ mat-icon{
     width:18px;
     height:18px;
 }
+.title,.name{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+}
+.name{
+    font-size: 12px;
+}

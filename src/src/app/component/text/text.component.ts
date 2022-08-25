@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Reply } from 'src/app/shared/sdk';
+import { Filef, FilefApi, Reply } from 'src/app/shared/sdk';
 
 @Component({
   selector: 'app-text',
@@ -8,11 +8,19 @@ import { Reply } from 'src/app/shared/sdk';
 })
 export class TextComponent implements OnInit {
   @Input() self:boolean=false;
-  @Input() reply:any|Reply;
-  
-  constructor() { }
+  @Input() reply:Reply;
+  file:Array<any>=[];
+  constructor(private fileF:FilefApi) { }
 
   ngOnInit(): void {
+    this.fileF.find({
+      where:{
+        recource : Reply.getModelName(),
+        recourceId:this.reply.id
+      }
+    }).
+    subscribe((file:Array<any>)=>this.file=file)
+
   }
 
 }

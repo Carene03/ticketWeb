@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ProfilComponent } from './profil/profil.component';
 import {MatIconModule} from '@angular/material/icon';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NavbarLeftComponent } from './navbar-left/navbar-left.component';
@@ -12,7 +13,6 @@ import { TextComponent } from './text/text.component';
 import { FileListComponent } from './file-list/file-list.component';
 import { AddComponent } from './add/add.component';
 import { FormsModule } from '@angular/forms';
-import { ProfilComponent } from './profil/profil.component';
 
 
 @NgModule({

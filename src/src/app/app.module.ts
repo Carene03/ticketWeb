@@ -9,7 +9,7 @@ import { LoopBackConfig, SDKBrowserModule } from './shared/sdk';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

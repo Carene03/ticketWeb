@@ -8,15 +8,22 @@ import { AccountApi, LoopBackAuth } from 'src/app/shared/sdk';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  emailOrUserName:string;
-  password:string;
+  emailOrUserName:string="mirana";
+  password:string="789123";
 
   constructor(private accountApi : AccountApi, private router : Router, private auth : LoopBackAuth) { }
 
   ngOnInit(): void {
-    if(this.auth.getToken().id!=null){
-      this.router.navigate(['']);
-    }
+    
+    // this.accountApi.getRole()
+    // if(this.auth.getToken().id!=null){
+    //   this.router.navigate(['']);
+    // }
+    // if(!this.auth.getToken().id){
+    //   this.router.navigate(['login']);
+    // }else{
+    //   this.router.navigate(['']);
+    // }
   }
 
   login(){
@@ -34,6 +41,9 @@ export class LoginComponent implements OnInit {
           this.auth.setToken(val);
         }
       }
+    },(err:any)=>{
+      console.log(err);
+      
     });
   }
 

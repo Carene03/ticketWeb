@@ -29,3 +29,10 @@ mat-icon{
     width:18px;
     height:18px;
 }
+.name{
+    text-transform: capitalize;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

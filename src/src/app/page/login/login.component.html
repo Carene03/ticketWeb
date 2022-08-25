@@ -1,14 +1,14 @@
-<div class="container">
-    <div class="row ">
+<!-- <div class="container"> -->
+    <!-- <div class="row ">
         <div class="col-md-2 bdr left ">
         </div>
         <div class="col-md-8">
             <div class="row  py-2 px-5">
-                <label for="exampleFormControlInput1"  class="form-label">Email address</label>
+                <b for="exampleFormControlInput1"  class="form-b">Email address</b>
                 <input type="email" class="form-control" [(ngModel)]="emailOrUserName" id="exampleFormControlInput1" placeholder="email or userName">
             </div>
             <div class="row  py-2 px-5">
-                <label for="exampleFormControlInput1" class="form-label">password</label>
+                <b for="exampleFormControlInput1" class="form-b">password</b>
                 <input type="password" class="form-control" [(ngModel)]="password" id="exampleFormControlInput1" placeholder="password">
             </div>
             <div class="row">
@@ -17,5 +17,25 @@
         </div>
         <div class="col-md-2 bdr left ">
         </div>
+    </div> -->
+<!-- </div> -->
+<div class="container ">
+    <div class="row h-100 d-flex justify-content-center align-items-center">
+        <!-- <div class="col-md-12"> -->
+            <div class="login px-5 py-5">
+                <div class="row">
+                    <b>Email address</b>    
+                    <input class="py-2" type="email"[(ngModel)]="emailOrUserName" placeholder="email or userName">
+                </div>
+                <div class="row">
+                    <b>Password</b>    
+                    <input class="py-2" type="password" [(ngModel)]="password" placeholder="password">
+                </div>
+                <div class="row my-5">
+                    <button class="py-2" type="button" (click)="login()" >login</button>
+                </div>
+            </div>
+        <!-- </div> -->
+
     </div>
 </div>

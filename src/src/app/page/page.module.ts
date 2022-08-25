@@ -7,6 +7,7 @@ import { TicketListComponent } from './ticket-list/ticket-list.component';
 import { DetailComponent } from './detail/detail.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { UserComponent } from './user/user.component';
 
 
 
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     HomeComponent,
     TicketListComponent,
-    DetailComponent
+    DetailComponent,
+    UserComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     HomeComponent,
     TicketListComponent,
-    DetailComponent
+    DetailComponent,
+    UserComponent
   ]
 })
 export class PageModule { }

@@ -9,8 +9,7 @@ import { Filef } from 'src/app/shared/sdk';
 export class AddComponent implements OnInit {
   @Input() file:Array<Filef>=[]
   @Input() text:String;
-  @Output() files:EventEmitter<Array<Filef>>= new EventEmitter();
-  @Output() texts:EventEmitter<String>= new EventEmitter();
+  @Output() files:EventEmitter<Array<Filef>>= new EventEmitter();  
   constructor() { }
 
   ngOnInit(): void {
@@ -23,6 +22,5 @@ export class AddComponent implements OnInit {
       this.file.push(temp);
     }
     this.files.emit(this.file);
-    this.texts.emit(this.text);
   }
 }

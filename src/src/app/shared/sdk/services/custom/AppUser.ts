@@ -31,7 +31,7 @@ export class AppUserApi extends BaseLoopBackApi {
   }
 
   /**
-   * Fetches belongsTo relation account.
+   * Extrait la relation belongsTo account.
    *
    * @param {any} id AppUser id
    *
@@ -61,11 +61,11 @@ export class AppUserApi extends BaseLoopBackApi {
   }
 
   /**
-   * Find a related item by id for tickets.
+   * Recherchez un élément lié par id pour tickets.
    *
    * @param {any} id AppUser id
    *
-   * @param {any} fk Foreign key for tickets
+   * @param {any} fk Clé externe pour tickets
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -91,11 +91,11 @@ export class AppUserApi extends BaseLoopBackApi {
   }
 
   /**
-   * Delete a related item by id for tickets.
+   * Supprimez un élément lié par id pour tickets.
    *
    * @param {any} id AppUser id
    *
-   * @param {any} fk Foreign key for tickets
+   * @param {any} fk Clé externe pour tickets
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -118,11 +118,11 @@ export class AppUserApi extends BaseLoopBackApi {
   }
 
   /**
-   * Update a related item by id for tickets.
+   * Mettez à jour un élément lié par id pour tickets.
    *
    * @param {any} id AppUser id
    *
-   * @param {any} fk Foreign key for tickets
+   * @param {any} fk Clé externe pour tickets
    *
    * @param {object} data Request data.
    *
@@ -154,11 +154,11 @@ export class AppUserApi extends BaseLoopBackApi {
   }
 
   /**
-   * Find a related item by id for replies.
+   * Recherchez un élément lié par id pour replies.
    *
    * @param {any} id AppUser id
    *
-   * @param {any} fk Foreign key for replies
+   * @param {any} fk Clé externe pour replies
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -184,11 +184,11 @@ export class AppUserApi extends BaseLoopBackApi {
   }
 
   /**
-   * Delete a related item by id for replies.
+   * Supprimez un élément lié par id pour replies.
    *
    * @param {any} id AppUser id
    *
-   * @param {any} fk Foreign key for replies
+   * @param {any} fk Clé externe pour replies
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -211,11 +211,11 @@ export class AppUserApi extends BaseLoopBackApi {
   }
 
   /**
-   * Update a related item by id for replies.
+   * Mettez à jour un élément lié par id pour replies.
    *
    * @param {any} id AppUser id
    *
-   * @param {any} fk Foreign key for replies
+   * @param {any} fk Clé externe pour replies
    *
    * @param {object} data Request data.
    *
@@ -247,7 +247,7 @@ export class AppUserApi extends BaseLoopBackApi {
   }
 
   /**
-   * Queries tickets of AppUser.
+   * Demandes tickets de AppUser.
    *
    * @param {any} id AppUser id
    *
@@ -277,7 +277,7 @@ export class AppUserApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in tickets of this model.
+   * Crée une instance dans tickets de ce modèle.
    *
    * @param {any} id AppUser id
    *
@@ -310,7 +310,7 @@ export class AppUserApi extends BaseLoopBackApi {
   }
 
   /**
-   * Deletes all tickets of this model.
+   * Supprime tous les tickets de ce modèle.
    *
    * @param {any} id AppUser id
    *
@@ -334,7 +334,7 @@ export class AppUserApi extends BaseLoopBackApi {
   }
 
   /**
-   * Counts tickets of AppUser.
+   * Compte tickets de AppUser.
    *
    * @param {any} id AppUser id
    *
@@ -363,7 +363,7 @@ export class AppUserApi extends BaseLoopBackApi {
   }
 
   /**
-   * Queries replies of AppUser.
+   * Demandes replies de AppUser.
    *
    * @param {any} id AppUser id
    *
@@ -393,7 +393,7 @@ export class AppUserApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in replies of this model.
+   * Crée une instance dans replies de ce modèle.
    *
    * @param {any} id AppUser id
    *
@@ -426,7 +426,7 @@ export class AppUserApi extends BaseLoopBackApi {
   }
 
   /**
-   * Deletes all replies of this model.
+   * Supprime tous les replies de ce modèle.
    *
    * @param {any} id AppUser id
    *
@@ -450,7 +450,7 @@ export class AppUserApi extends BaseLoopBackApi {
   }
 
   /**
-   * Counts replies of AppUser.
+   * Compte replies de AppUser.
    *
    * @param {any} id AppUser id
    *
@@ -541,7 +541,7 @@ export class AppUserApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in tickets of this model.
+   * Crée une instance dans tickets de ce modèle.
    *
    * @param {any} id AppUser id
    *
@@ -574,7 +574,7 @@ export class AppUserApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in replies of this model.
+   * Crée une instance dans replies de ce modèle.
    *
    * @param {any} id AppUser id
    *

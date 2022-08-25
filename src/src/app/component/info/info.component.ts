@@ -11,7 +11,7 @@ export class InfoComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.ticket);
+    // console.log(this.ticket);
     
   }
 

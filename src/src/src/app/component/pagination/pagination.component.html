@@ -1,0 +1,14 @@
+<div class="col">
+    <nav class="float-end " aria-label="Page navigation example">
+        <ul class="pagination ">
+            <li class="page-item"><span class="page-link" *ngIf="active>1" (click)="onPageChange(active=active-1)">Previous</span></li>
+            
+            <li *ngFor="let i of arr;let j=index" class="page-item">
+                <span (click)="onPageChange(active=j+1)" *ngIf="j+1!=active" class="page-link" >{{j+1}}</span>
+                <span (click)="onPageChange(active=j+1)" *ngIf="j+1==active" class="page-link active" >{{j+1}}</span>
+            </li>
+    
+            <li class="page-item"><span class="page-link" *ngIf="active<arr.length" (click)="onPageChange(active=active+1)">Next</span></li>
+        </ul>
+    </nav>
+</div>

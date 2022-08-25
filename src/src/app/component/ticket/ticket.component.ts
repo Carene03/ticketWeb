@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import {  Router } from '@angular/router';
-import { Filef, SupportTicket, SupportTicketApi, FilefApi, AppUser } from 'src/app/shared/sdk';
+import { SupportTicket, SupportTicketApi } from 'src/app/shared/sdk';
 
 @Component({
   selector: 'app-ticket',
@@ -8,10 +8,10 @@ import { Filef, SupportTicket, SupportTicketApi, FilefApi, AppUser } from 'src/a
   styleUrls: ['./ticket.component.scss']
 })
 export class TicketComponent implements OnInit {
-  file:Array<Filef>;
+
   @Input() ticket:any|SupportTicket;
 
-  constructor(private router : Router, private ticketApi : SupportTicketApi, private fileApi :FilefApi) { }
+  constructor(private router : Router, private ticketApi : SupportTicketApi) { }
 
   ngOnInit(): void {
   }
@@ -22,17 +22,10 @@ export class TicketComponent implements OnInit {
 
   close(){
     this.ticketApi.closeTicket(this.ticket).subscribe((val) => {
-      if(val) this.router.navigate(['']);
-    });
-  }
+      this.router.navigate(['']).then(() => {
+        window.location.reload();
+      });;
 
-  getFiles(){
-    let condistion = {
-      resource: AppUser.getModelName(),
-      recourceId: this.ticket.id
-    }
-    this.fileApi.getFile(condistion).subscribe((val) => {
-      if (val) this.file = val;
     });
   }
 

@@ -29,11 +29,11 @@ export class SupportTicketApi extends BaseLoopBackApi {
   }
 
   /**
-   * Find a related item by id for replies.
+   * Recherchez un élément lié par id pour replies.
    *
    * @param {any} id SupportTicket id
    *
-   * @param {any} fk Foreign key for replies
+   * @param {any} fk Clé externe pour replies
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -59,11 +59,11 @@ export class SupportTicketApi extends BaseLoopBackApi {
   }
 
   /**
-   * Delete a related item by id for replies.
+   * Supprimez un élément lié par id pour replies.
    *
    * @param {any} id SupportTicket id
    *
-   * @param {any} fk Foreign key for replies
+   * @param {any} fk Clé externe pour replies
    *
    * @returns {object} An empty reference that will be
    *   populated with the actual data once the response is returned
@@ -86,11 +86,11 @@ export class SupportTicketApi extends BaseLoopBackApi {
   }
 
   /**
-   * Update a related item by id for replies.
+   * Mettez à jour un élément lié par id pour replies.
    *
    * @param {any} id SupportTicket id
    *
-   * @param {any} fk Foreign key for replies
+   * @param {any} fk Clé externe pour replies
    *
    * @param {object} data Request data.
    *
@@ -122,7 +122,7 @@ export class SupportTicketApi extends BaseLoopBackApi {
   }
 
   /**
-   * Queries replies of SupportTicket.
+   * Demandes replies de SupportTicket.
    *
    * @param {any} id SupportTicket id
    *
@@ -152,7 +152,7 @@ export class SupportTicketApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in replies of this model.
+   * Crée une instance dans replies de ce modèle.
    *
    * @param {any} id SupportTicket id
    *
@@ -185,7 +185,7 @@ export class SupportTicketApi extends BaseLoopBackApi {
   }
 
   /**
-   * Deletes all replies of this model.
+   * Supprime tous les replies de ce modèle.
    *
    * @param {any} id SupportTicket id
    *
@@ -209,7 +209,7 @@ export class SupportTicketApi extends BaseLoopBackApi {
   }
 
   /**
-   * Counts replies of SupportTicket.
+   * Compte replies de SupportTicket.
    *
    * @param {any} id SupportTicket id
    *
@@ -354,7 +354,7 @@ export class SupportTicketApi extends BaseLoopBackApi {
   }
 
   /**
-   * Creates a new instance in replies of this model.
+   * Crée une instance dans replies de ce modèle.
    *
    * @param {any} id SupportTicket id
    *

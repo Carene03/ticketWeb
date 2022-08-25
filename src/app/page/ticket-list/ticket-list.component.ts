@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AccountApi, LoopBackAuth, SupportTicketApi } from 'src/app/shared/sdk';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from 'src/app/service/user.service';
+import { AccountApi, AppUserApi, LoopBackAuth, SupportTicketApi } from 'src/app/shared/sdk';
 
 @Component({
   selector: 'app-ticket-list',
@@ -10,6 +11,9 @@ import { AccountApi, LoopBackAuth, SupportTicketApi } from 'src/app/shared/sdk';
 export class TicketListComponent implements OnInit {
   #open=true;
   tickets:Array<any>;
+  isAdmin=false;
+
+
   @Input() set open(open:boolean){
     this.#open=open;
     // console.log(`get all ${open? "opened":"closed"} tickets`)
@@ -18,22 +22,53 @@ export class TicketListComponent implements OnInit {
   get open(){
     return this.#open;
   }
-  constructor(private accountApi: AccountApi, private router : Router, private auth : LoopBackAuth ,private supportTicketApi : SupportTicketApi) { }
+  constructor(private accountApi:AccountApi,
+    private router : Router,
+    private route:ActivatedRoute, 
+    private auth : LoopBackAuth ,
+    private supportTicketApi : SupportTicketApi,
+    private us:UserService
+  ) { }
 
   ngOnInit(): void {
-    console.log(this.auth.getToken().id);
-    
-    // this.accountApi.logout();
+    this.accountApi.getRole(3).subscribe((role)=>this.isAdmin=role[0].is==1)
     if(this.auth.getToken().id==null){
       this.router.navigate(['login']);
     } else {
-      this.findTicket();
+      let param=this.route.snapshot.paramMap.get('id')
+      let id=parseInt(param)||this.auth.getCurrentUserId ();
+      
+      if(!param) {
+        this.us.currentIsAdmin.subscribe(data=>{
+          if(data==true)
+            this.findTicket(id,{});
+          else
+          this.findTicket(id,{
+            appUserId:id
+          });
+        })
+      } 
+      else
+        this.us.currentIsAdmin.subscribe(data=>{
+          if(data==true)
+            this.findTicket(id,{
+              appUserId:id
+            });
+          else
+            this.findTicket(id,{
+              appUserId:this.auth.getCurrentUserId ()
+            });
+        })
     }
   }
 
-  findTicket(){
-    this.supportTicketApi.getTicket().subscribe((value) => {
-      if (value) this.tickets = value.data;
+  findTicket(id:number,where:any){
+    // console.log(id);
+    
+    this.supportTicketApi.find({
+      where:where
+    }).subscribe((value) => {
+      if (value) this.tickets = value;
       // console.log(value.data);
       
     });

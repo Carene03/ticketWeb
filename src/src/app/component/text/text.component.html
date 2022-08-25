@@ -2,13 +2,14 @@
 
     <div [ngClass]="'col-md-9 content pt-2 px-4 '+(self?'self':'')">
         <div class="row ">
-            <div class="col"><b>{{self?"vous":reply?.user?.userName}}</b></div>
+            <!-- {{reply.appUserId}} -->
+            <div class="col"><b>{{self?"vous":"admin"}}</b></div>
         </div>
         <div class="row  py-2">
             <div class="col"><i>{{reply?.text}}</i></div>
         </div>
-        <div class="row bdt py-2" *ngIf="reply.file?.length>0">
-            <app-file-list [file]="reply.file"></app-file-list>
+        <div class="row bdt py-2" *ngIf="file?.length>0">
+            <app-file-list [file]="file"></app-file-list>
         </div>
     </div>
 
